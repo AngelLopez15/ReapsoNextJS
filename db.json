@@ -1,0 +1,16 @@
+{
+  "services": [
+    {
+      "id": 1,
+      "name": "Desarrollo Web"
+    },
+    {
+      "id": 2,
+      "name": "Desarrollo Mobile"
+    },
+    {
+      "id": 3,
+      "name": "Desarrollo a la medida"
+    }
+  ]
+}

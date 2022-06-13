@@ -2,15 +2,21 @@
   "services": [
     {
       "id": 1,
-      "name": "Desarrollo Web"
+      "name": "Desarrollo Web",
+      "slug": "web",
+      "detail": "Est cupiditate nihil quas provident deleniti."
     },
     {
       "id": 2,
-      "name": "Desarrollo Mobile"
+      "name": "Desarrollo Mobile",
+      "slug": "mobile",
+      "detail": "Labore non doloribus et dolorem ut enim."
     },
     {
       "id": 3,
-      "name": "Desarrollo a la medida"
+      "name": "Desarrollo a la medida",
+      "slug": "custom",
+      "detail": "Alias libero nihil optio velit deleniti esse voluptatem."
     }
   ]
 }

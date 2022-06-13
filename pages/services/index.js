@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 const services = (props) => {
   const {
     services,
@@ -6,15 +8,17 @@ const services = (props) => {
   return (
     <div>
       <h1>Página de Servicios</h1>
-      <div>
+      <ul>
         {
           services.map(service => {
-            <div key={ service.id }>
-              <h2>{ service.name }</h2>
-            </div>
+            <li key={ service.id }>
+              <Link href={`/services/${service.id}`}>
+                { service.name }
+              </Link>
+            </li>
           })
         }
-      </div>
+      </ul>
     </div>
   )
 }
@@ -34,10 +38,13 @@ export async function getStaticProps() {
   const resp = await fetch("http://localhost:3050/services")
   const services = await resp.json()
 
+  // para aplicar el Incremental site regeneration debemos retornar la propiedad revalidate (su valor siempre debe ser dada en segundo)
+  // la cual indica cada cuanto tiempo debe volver a hacer una peticion a la API
   return {
     props: {
       services
-    }
+    },
+    revalidate: 60,
   }
 }
 

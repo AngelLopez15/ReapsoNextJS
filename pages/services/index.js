@@ -47,5 +47,20 @@ export async function getStaticProps() {
     revalidate: 60,
   }
 }
+// Actualmente la mayoría de los sitios web pueden ser estáticas por que no cambian o cambian muy poco. Sin embargo hay apps 
+// o sitios web que sus paginas no pueden ser estáticas como por ejemplo una red social. Para paginas dinámicas se debe la función **getServerSideProps.**
+// Esta funcion no necesita la propiedad revalidate ya que se es dede el lado del servidor, ose en este caso cada vez que 
+// un usuario entre, se actualice o se abra en una nueva pestaña, el front ira al API para actualizar la informacion.
+// Esto debemos usarlo cuando el contenido cambia muy seguido.
+// export async function getServerSideProps() {
+//   const resp = await fetch("http://localhost:3050/services")
+//   const services = await resp.json()
+
+//   return {
+//     props: {
+//       services
+//     },
+//   }
+// }
 
 export default services

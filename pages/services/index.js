@@ -33,9 +33,11 @@ const services = (props) => {
 // Esto se hace por temas de rendimientos para que el front solo se conecte una vez a la Base de datos.
 // Es decir se podria apagar el back despues de hacer el build y el front seguira funcionando.
 export async function getStaticProps() {
+  // poniendo la url de la API pero con variables de entorno
+  const api = process.env.API_URL 
 
   // haciendo un fetch a la url de la API
-  const resp = await fetch("http://localhost:3050/services")
+  const resp = await fetch(`${api}/services`)
   const services = await resp.json()
 
   // para aplicar el Incremental site regeneration debemos retornar la propiedad revalidate (su valor siempre debe ser dada en segundo)

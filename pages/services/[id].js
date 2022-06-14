@@ -1,7 +1,12 @@
+import Head from "next/head";
+
 const Service = (props) => {
   const { service } = props;
   return (
     <div>
+      <Head>
+        <title>{ service.name } | Mi sitio con NEXT</title>
+      </Head>
       <h1>{ service.name }</h1>
       <p>{ service.detail }</p>
     </div>
@@ -13,9 +18,11 @@ const Service = (props) => {
 // la cual contendra todo el listado de paths que necesita crear.
 
 export async function getStaticProps(context) {
+  const api = process.env.API_URL 
+
   // id es una propiedad que podemos destructurar de params que a su vez es una propiedad del context
   const { id } = context.params
-  const resp = await fetch(`http://localhost:3040/services/${id}`)
+  const resp = await fetch(`${api}/services/${id}`)
   const service = await resp.json()
 
   return {
